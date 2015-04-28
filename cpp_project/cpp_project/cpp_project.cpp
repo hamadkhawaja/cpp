@@ -8,11 +8,14 @@ using namespace std;
 int _tmain(int argc, _TCHAR* argv[])
 {
 	ArraysAndStrings *runner = new ArraysAndStrings();
-	char str[] = "abcddefgh";
-	runner->isUniqueCharWithoutSpace(str) ? cout << "Unique string\n" : cout << "String has duplicates\n" ;
+	char str[] = "abcdefgh";
+	runner->isPermutation("abcdef", "dabdcfe") ? cout << "Permutation\n" : cout << "not permutation\n" ;
 	delete runner;
-	char input[1024] = {};
-	cin >> input;
+	char input[1024] = {"Mr John  Smith   "};
+	runner->replaceSpaces(input);
+	cout << input;
+	char s[1024] = {};
+	cin >> s;
 	return 0;
 }
 
