@@ -79,12 +79,12 @@ bool ArraysAndStrings::isPermutation(char *strA, char *strB)
 
 	int count[128] = {0};
 
-	for (int i = 0; i < strlen(strA); i++ )
+	for (int i = 0; i < (int)strlen(strA); i++)
 	{
 		count[strA[i]]++;
 	}
 	
-	for (int i = 0; i < strlen(strB); i++ )
+	for (int i = 0; i < (int)strlen(strB); i++ )
 	{
 		if (count[strB[i]]-- < 0)
 			return false;
@@ -96,7 +96,7 @@ bool ArraysAndStrings::isPermutation(char *strA, char *strB)
 void ArraysAndStrings::replaceSpaces(char *str)
 {
 	int count = 0;
-	for (int x = 0; x < strlen(str); x++)
+	for (int x = 0; x < (int)strlen(str); x++)
 	{
 		if (str[x] == ' ')
 		{

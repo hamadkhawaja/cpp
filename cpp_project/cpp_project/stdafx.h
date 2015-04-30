@@ -10,6 +10,7 @@
 #include <tchar.h>
 
 #include "arraysandstrings.h"
+#include "LinkedList.h"
 #include <iostream>
 
 

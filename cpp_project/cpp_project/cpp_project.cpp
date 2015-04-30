@@ -7,13 +7,16 @@ using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	ArraysAndStrings *runner = new ArraysAndStrings();
-	char str[] = "abcdefgh";
-	runner->isPermutation("abcdef", "dabdcfe") ? cout << "Permutation\n" : cout << "not permutation\n" ;
-	delete runner;
-	char input[1024] = {"Mr John  Smith   "};
-	runner->replaceSpaces(input);
-	cout << input;
+	LinkedList *list = new LinkedList();
+	list->InsertSorted(5);
+	list->InsertSorted(4);
+	list->InsertSorted(3);
+	list->InsertSorted(2);
+	list->InsertSorted(1);
+	list->PrintList();
+	cout << "\nReverse List: ";
+	list->PrintReverse();
+	delete list;
 	char s[1024] = {};
 	cin >> s;
 	return 0;
