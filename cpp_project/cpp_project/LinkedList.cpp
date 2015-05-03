@@ -94,3 +94,55 @@ void LinkedList::InsertSorted(int element)
 	ptr->next = listPtrNext;
 
 }
+
+void LinkedList::DeleteDuplicates()
+{
+	unordered_set <int>seen;
+	Node *ptr = head;
+	seen.insert(ptr->element);
+	while (ptr && ptr->next)
+	{
+		if (seen.count(ptr->next->element) > 0)
+		{
+			Node *tmpPtr = ptr->next;
+			ptr->next = ptr->next->next;
+			free(tmpPtr);
+		}
+		else
+		{
+			seen.insert(ptr->next->element);
+		}
+		ptr = ptr->next;
+	}
+}
+
+int LinkedList::FindKthLastElement(int k)
+{
+	if (head == nullptr)
+	{
+		return -1;
+	}
+
+	Node *fastPtr = head;
+	int count = 0;
+	while (fastPtr && count < k)
+	{
+		fastPtr = fastPtr->next;
+		count++;
+	}
+
+	if (count != count)
+	{
+		return -1;
+	}
+
+	Node *ptr = head;
+
+	while (fastPtr) 
+	{
+		ptr = ptr->next;
+		fastPtr = fastPtr->next;
+	}
+
+	return ptr->element;
+}
