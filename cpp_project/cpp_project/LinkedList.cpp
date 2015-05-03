@@ -146,3 +146,39 @@ int LinkedList::FindKthLastElement(int k)
 
 	return ptr->element;
 }
+
+
+bool LinkedList::isPalindrome()
+{
+	if (!head || !head->next)
+	{
+		return true;
+	}
+
+	stack <int>s;
+	Node *slowPtr = head, *fastPtr = head;
+	while (fastPtr && fastPtr->next)
+	{
+		s.push(slowPtr->element);
+		slowPtr = slowPtr->next;
+		fastPtr = fastPtr->next->next;
+	}
+
+	if (fastPtr != nullptr)
+	{
+		slowPtr = slowPtr->next;
+	}
+
+	while (!slowPtr)
+	{
+		if (s.top() != slowPtr->element)
+		{
+			return false;
+		}
+
+		s.pop();
+		slowPtr = slowPtr->next;
+	}
+
+	return true;
+}

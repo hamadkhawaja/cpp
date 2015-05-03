@@ -19,6 +19,7 @@ public:
 	void DeleteDuplicates();
 	Node *SumLists(Node *L1, Node *L2, int carry);
 	int FindKthLastElement(int k);
+	bool isPalindrome();
 private:
 	void _PrintReverse(Node *head);
 };
