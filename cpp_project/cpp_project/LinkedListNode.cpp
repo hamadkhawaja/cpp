@@ -90,3 +90,43 @@ ListNode *DetectStartOfLoop(ListNode *head)
 
 	return fastPtr;
 }
+
+void ReverseListRecursive(ListNode **head) 
+{
+	if (*head == nullptr)
+	{
+		return;
+	}
+
+	ListNode *first = *head;
+	ListNode *rest = first->next;
+	if (rest == nullptr)
+	{
+		return;
+	}
+	ReverseListRecursive(&rest);
+	first->next->next = first;
+	first->next = nullptr; 
+	*head = rest;
+}
+
+void ReverseListItterative(ListNode **head)
+{
+	if (*head == nullptr)
+	{
+		return;
+	}
+
+	ListNode *current = *head;
+	ListNode *prev = nullptr;
+	ListNode *next;
+	while (current)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+
+	*head = prev;
+}
